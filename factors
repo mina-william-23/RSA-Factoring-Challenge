@@ -6,11 +6,15 @@ if __name__ == '__main__':
     if len(sys.argv) == 2:
         try:
             file1 = open(sys.argv[1], "r")
-            for line in file1:
-                num = line[:line.index('\n')]
-                # num = line.split(' \n', 1)
-                if num:
-                    print('{}=1*{}'.format(num, num))
-            file1.close()
         except Exception:
             exit()
+        for line in file1:
+            splitted = line.split()
+            for word in splitted:
+                try:
+                    num = int(word)
+                    print('{}=1*{}'.format(num, num))
+                    break
+                except Exception:
+                    continue
+        file1.close()
