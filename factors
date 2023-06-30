@@ -18,11 +18,11 @@ if __name__ == '__main__':
         splitted = line.split()
         if len(splitted) != 1:
             continue
-        for word in splitted:
+        else:
+            word = splitted[0]
             try:
                 num = int(word)
                 print('{}=1*{}'.format(num, num))
-                break
             except Exception:
                 continue
     file1.close()
