@@ -16,7 +16,8 @@ if __name__ == '__main__':
 
     for line in file1:
         try:
-            num = int(line[:-1])
+            stripped = line.strip()
+            num = int(stripped)
             print('{}=1*{}'.format(num, num))
         except Exception:
             continue
