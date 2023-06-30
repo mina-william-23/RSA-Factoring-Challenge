@@ -16,6 +16,8 @@ if __name__ == '__main__':
 
     for line in file1:
         splitted = line.split()
+        if len(splitted) != 1:
+            continue
         for word in splitted:
             try:
                 num = int(word)
