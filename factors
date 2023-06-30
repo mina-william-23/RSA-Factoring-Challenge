@@ -2,24 +2,34 @@
 import sys
 
 
-if __name__ == '__main__':
+def first_factor(num):
+    if num % 2 == 0:
+        return 2
+    i = 3
+    while i*i <= num:
+        if num % i == 0:
+            return i
+        i += 2
+    return 1
 
-    if len(sys.argv) != 2:
-        print("USAGE: factors file", file=sys.stderr)
-        exit(1)
-        
+
+if len(sys.argv) != 2:
+    exit()
+try:
+    test_file = open(sys.argv[1], "r")
+except:
+    exit()
+nums_map = {}
+while True:
     try:
-        file1 = open(sys.argv[1], "r")
-    except Exception:
-        print("Error: Can't open file {}".format(sys.argv[1]), file=sys.stderr)
-        exit(1)
-
-    for line in file1:
-        try:
-            stripped = line.split('\n')[0]
-            num = int(stripped)
-            if (num > 1):
-                print('{}=1*{}'.format(num, num))
-        except Exception:
-            continue
-    file1.close()
+        num = int(test_file.readline())
+        factor = 0
+        if num in nums_map:
+            factor = nums_map[num]
+        else:
+            factor = first_factor(num)
+            nums_map[num] = factor
+        print("{}={}*{}".format(num, num // factor, factor))
+    except:
+        break
+test_file.close()
