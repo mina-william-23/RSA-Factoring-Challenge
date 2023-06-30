@@ -17,9 +17,8 @@ if __name__ == '__main__':
     for line in file1:
         try:
             stripped = line.strip()
-            num = int(stripped)
-            if num >= 1:
-                print('{}=1*{}'.format(num, num))
+            num = abs(int(stripped))
+            print('{}=1*{}'.format(num, num))
         except Exception:
             continue
     file1.close()
