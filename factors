@@ -3,15 +3,24 @@ import sys
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        try:
-            file1 = open(sys.argv[1], "r")
-        except Exception:
-            exit()
-        for line in file1:
+
+    if len(sys.argv) != 2:
+        print("USAGE: factors file", file=sys.stderr)
+        exit(1)
+        
+    try:
+        file1 = open(sys.argv[1], "r")
+    except Exception:
+        print("Error: Can't open file {}".format(sys.argv[1]), file=sys.stderr)
+        exit(1)
+
+    for line in file1:
+        splitted = line.split()
+        for word in splitted:
             try:
-                num = int(line[:-1])
+                num = int(word)
                 print('{}=1*{}'.format(num, num))
+                break
             except Exception:
                 continue
-        file1.close()
+    file1.close()
