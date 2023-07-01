@@ -5,14 +5,14 @@ import sys
 if __name__ == '__main__':
 
     if len(sys.argv) != 2:
-        print("USAGE: factors file", file=sys.stderr)
-        exit(1)
+        # print("USAGE: factors file", file=sys.stderr)
+        exit()
         
     try:
         file1 = open(sys.argv[1], "r")
     except Exception:
         # print("Error: Can't open file {}".format(sys.argv[1]), file=sys.stderr)
-        exit(1)
+        exit()
 
     for line in file1:
         try:
