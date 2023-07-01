@@ -16,7 +16,7 @@ for line in file1:
     try:
         # stripped = line.strip()
         num = int(line)
-        print('{}=1*{}'.format(num, num))
+        print('{}={}*1'.format(num, num))
     except Exception:
         continue
 file1.close()
