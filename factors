@@ -11,7 +11,7 @@ if __name__ == '__main__':
     try:
         file1 = open(sys.argv[1], "r")
     except Exception:
-        print("Error: Can't open file {}".format(sys.argv[1]), file=sys.stderr)
+        # print("Error: Can't open file {}".format(sys.argv[1]), file=sys.stderr)
         exit(1)
 
     for line in file1:
